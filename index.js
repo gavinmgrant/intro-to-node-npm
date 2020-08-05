@@ -1,8 +1,10 @@
-const debug = require('debug'); // require local dependency
+const fs = require('fs');
+const chalk = require('chalk-animation');
 
-debug.enable('*'); // enable all (*) namespaces
+const contents = fs.readdirSync('./animals');
 
-const logger = debug('hello-world-logger'); // create logger
+const animation = chalk.rainbow(
+    contents.join('\n')
+);
 
-logger('Testy test test');
-logger('Second testy test test');
+setTimeout(() => animation.stop(), 1300);
