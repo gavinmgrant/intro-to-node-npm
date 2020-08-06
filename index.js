@@ -1,10 +1,6 @@
 const fs = require('fs');
-const chalk = require('chalk-animation');
+const { animateString } = require('./animate-string'); // named import
 
 const contents = fs.readdirSync('./animals');
 
-const animation = chalk.rainbow(
-    contents.join('\n')
-);
-
-setTimeout(() => animation.stop(), 1300);
+animateString(contents.join('\n'));
